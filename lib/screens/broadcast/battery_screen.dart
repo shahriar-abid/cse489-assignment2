@@ -58,6 +58,9 @@ class _BatteryScreenState extends State<BatteryScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final orientation = MediaQuery.of(context).orientation;
+    final isLandscape = orientation == Orientation.landscape;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Battery Percentage"),
@@ -75,16 +78,13 @@ class _BatteryScreenState extends State<BatteryScreen> {
                       color: AppColors.text,
                     ),
               ),
-              const SizedBox(height: AppSizes.xl),
-              
+              SizedBox(height: isLandscape ? AppSizes.md : AppSizes.xl),
               Icon(
                 _getBatteryIcon(),
-                size: 150,
+                size: isLandscape ? 100 : 150,
                 color: _getBatteryColor(),
               ),
-              
-              const SizedBox(height: AppSizes.xl),
-              
+              SizedBox(height: isLandscape ? AppSizes.md : AppSizes.xl),
               const Text(
                 "Current Battery Level",
                 style: TextStyle(
@@ -96,8 +96,8 @@ class _BatteryScreenState extends State<BatteryScreen> {
               const SizedBox(height: AppSizes.sm),
               Text(
                 "$_level%",
-                style: const TextStyle(
-                  fontSize: 64,
+                style: TextStyle(
+                  fontSize: isLandscape ? 48 : 64,
                   fontWeight: FontWeight.bold,
                 ),
               ),

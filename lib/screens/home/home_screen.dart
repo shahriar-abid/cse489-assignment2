@@ -14,9 +14,9 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text(AppStrings.appTitle),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(AppSizes.lg),
-        child: Center(
+      body: Center(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(AppSizes.lg),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

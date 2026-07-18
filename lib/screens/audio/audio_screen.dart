@@ -67,22 +67,25 @@ class _AudioScreenState extends State<AudioScreen> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
+    final orientation = MediaQuery.of(context).orientation;
+    final isLandscape = orientation == Orientation.landscape;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(AppStrings.audio),
       ),
       body: Center(
-        child: Padding(
+        child: SingleChildScrollView(
           padding: const EdgeInsets.all(AppSizes.lg),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(
+              Icon(
                 Icons.music_note,
-                size: 100,
+                size: isLandscape ? 60 : 100,
                 color: AppColors.primary,
               ),
-              const SizedBox(height: AppSizes.xl),
+              SizedBox(height: isLandscape ? AppSizes.md : AppSizes.xl),
               if (_isLoading)
                 const CircularProgressIndicator()
               else if (_isError)

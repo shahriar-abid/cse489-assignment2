@@ -45,51 +45,53 @@ class _BroadcastSelectionScreenState extends State<BroadcastSelectionScreen> {
       appBar: AppBar(
         title: const Text(AppStrings.broadcast),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(AppSizes.lg),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              "Select a broadcast type",
-              style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.text,
-                  ),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: AppSizes.xl),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: AppSizes.md),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(AppSizes.borderRadius),
-                border: Border.all(color: Colors.grey.shade300),
+      body: Center(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(AppSizes.lg),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(
+                "Select a broadcast type",
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.text,
+                    ),
+                textAlign: TextAlign.center,
               ),
-              child: DropdownButtonHideUnderline(
-                child: DropdownButton<String>(
-                  value: _selectedOption,
-                  isExpanded: true,
-                  items: _options.map((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    );
-                  }).toList(),
-                  onChanged: (newValue) {
-                    setState(() {
-                      _selectedOption = newValue;
-                    });
-                  },
+              const SizedBox(height: AppSizes.xl),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: AppSizes.md),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(AppSizes.borderRadius),
+                  border: Border.all(color: Colors.grey.shade300),
+                ),
+                child: DropdownButtonHideUnderline(
+                  child: DropdownButton<String>(
+                    value: _selectedOption,
+                    isExpanded: true,
+                    items: _options.map((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                    onChanged: (newValue) {
+                      setState(() {
+                        _selectedOption = newValue;
+                      });
+                    },
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: AppSizes.xl),
-            ElevatedButton(
-              onPressed: _onProceed,
-              child: const Text(AppStrings.proceed),
-            ),
-          ],
+              const SizedBox(height: AppSizes.xl),
+              ElevatedButton(
+                onPressed: _onProceed,
+                child: const Text(AppStrings.proceed),
+              ),
+            ],
+          ),
         ),
       ),
     );

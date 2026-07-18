@@ -38,6 +38,9 @@ class _ImageScreenState extends State<ImageScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final orientation = MediaQuery.of(context).orientation;
+    final isLandscape = orientation == Orientation.landscape;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(AppStrings.image),
@@ -63,29 +66,30 @@ class _ImageScreenState extends State<ImageScreen> {
                   child: CircularProgressIndicator(),
                 ),
                 errorBuilder: (context, error, stackTrace) => Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(Icons.error_outline, color: Colors.red, size: 48),
-                      const SizedBox(height: AppSizes.sm),
-                      const Text("Failed to load image from internet"),
-                      const SizedBox(height: AppSizes.sm),
-                      const Text(
-                        "Check your internet connection",
-                        style: TextStyle(fontSize: 12, color: Colors.grey),
-                      ),
-                      const SizedBox(height: AppSizes.md),
-                      ElevatedButton(
-                        onPressed: () {
-                          setState(() {
-                            // Clear the cache to force a reload
-                            PaintingBinding.instance.imageCache.clear();
-                            PaintingBinding.instance.imageCache.clearLiveImages();
-                          });
-                        },
-                        child: const Text("Retry"),
-                      )
-                    ],
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(Icons.error_outline, color: Colors.red, size: 48),
+                        const SizedBox(height: AppSizes.sm),
+                        const Text("Failed to load image from internet"),
+                        const SizedBox(height: AppSizes.sm),
+                        const Text(
+                          "Check your internet connection",
+                          style: TextStyle(fontSize: 12, color: Colors.grey),
+                        ),
+                        const SizedBox(height: AppSizes.md),
+                        ElevatedButton(
+                          onPressed: () {
+                            setState(() {
+                              PaintingBinding.instance.imageCache.clear();
+                              PaintingBinding.instance.imageCache.clearLiveImages();
+                            });
+                          },
+                          child: const Text("Retry"),
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 minScale: PhotoViewComputedScale.contained,
@@ -94,13 +98,13 @@ class _ImageScreenState extends State<ImageScreen> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(AppSizes.lg),
+            padding: EdgeInsets.all(isLandscape ? AppSizes.sm : AppSizes.lg),
             child: ElevatedButton.icon(
               onPressed: _resetZoom,
               icon: const Icon(Icons.refresh),
               label: const Text("Reset Zoom"),
               style: ElevatedButton.styleFrom(
-                minimumSize: const Size(200, AppSizes.buttonHeight),
+                minimumSize: Size(200, isLandscape ? 40 : AppSizes.buttonHeight),
               ),
             ),
           ),

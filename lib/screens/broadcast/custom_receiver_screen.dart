@@ -60,16 +60,15 @@ class _CustomReceiverScreenState extends State<CustomReceiverScreen> {
       appBar: AppBar(
         title: const Text("Broadcast Result"),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(AppSizes.lg),
-        child: Center(
+      body: Center(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(AppSizes.lg),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Icon(
                 Icons.broadcast_on_personal,
                 size: 80,
-                color: AppColors.primary,
               ),
               const SizedBox(height: AppSizes.xl),
               const Text(

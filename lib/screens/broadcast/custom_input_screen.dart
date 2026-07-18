@@ -42,34 +42,36 @@ class _CustomInputScreenState extends State<CustomInputScreen> {
       appBar: AppBar(
         title: const Text("Custom Broadcast"),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(AppSizes.lg),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              "Enter custom message",
-              style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.text,
-                  ),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: AppSizes.xl),
-            TextField(
-              controller: _controller,
-              decoration: const InputDecoration(
-                labelText: "Message",
-                hintText: "Enter text here...",
+      body: Center(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(AppSizes.lg),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(
+                "Enter custom message",
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.text,
+                    ),
+                textAlign: TextAlign.center,
               ),
-            ),
-            const SizedBox(height: AppSizes.xl),
-            ElevatedButton(
-              onPressed: _onProceed,
-              child: const Text(AppStrings.proceed),
-            ),
-          ],
+              const SizedBox(height: AppSizes.xl),
+              TextField(
+                controller: _controller,
+                decoration: const InputDecoration(
+                  labelText: "Message",
+                  hintText: "Enter text here...",
+                ),
+              ),
+              const SizedBox(height: AppSizes.xl),
+              ElevatedButton(
+                onPressed: _onProceed,
+                child: const Text(AppStrings.proceed),
+              ),
+            ],
+          ),
         ),
       ),
     );
