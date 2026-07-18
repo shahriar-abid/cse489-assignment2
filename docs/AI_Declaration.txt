@@ -1,0 +1,66 @@
+============================================================
+           AI USAGE DECLARATION
+============================================================
+
+Name: Md Al Shahriar Abid
+Student ID: 23301613
+Assignment: 02
+Date: Jul 18, 2026
+
+------------------------------------------------------------
+1. AI TOOLS USED (check all that apply)
+------------------------------------------------------------
+[ ] None
+[X] ChatGPT
+[ ] GitHub Copilot
+[ ] Google Gemini
+[ ] Claude
+[ ] Cursor
+[ ] Other: ________________
+
+------------------------------------------------------------
+2. PURPOSE OF AI USE (check all that apply)
+------------------------------------------------------------
+[X] Learning/understanding concepts
+[X] Debugging my code
+[ ] Generating code snippets
+[ ] Writing text content
+[X] Design/styling ideas
+[ ] Image generation
+[ ] Other: ________________
+
+------------------------------------------------------------
+3. DESCRIPTION OF AI USE
+------------------------------------------------------------
+
+
+I used AI primarily as a learning and development assistant while working on this assignment. It helped me understand Flutter and Android development concepts, including UI implementation, media playback, gesture-based image scaling, broadcast receivers, and communication between Flutter and native Android code.
+
+I also used AI to help debug implementation and build issues, review code and improve UI design. I learned how the different parts of the code work.
+
+
+------------------------------------------------------------
+4. AI-ASSISTED SECTIONS
+------------------------------------------------------------
+List specific files/sections where AI helped significantly:
+
+File: broadcast Section: receiver and input screen
+File: video Section: video screen
+File: audio Section: audio screen
+
+
+------------------------------------------------------------
+5. DECLARATION
+------------------------------------------------------------
+I declare that:
+- This disclosure is complete and accurate
+- I understand all code in my submission
+- I can explain and modify my work if asked
+- I take full responsibility for my submission
+
+Signature: Shahriar
+Date: 18 July 2026
+
+============================================================
+Save as: docs/AI_Declaration.txt
+============================================================
